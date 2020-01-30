@@ -1,0 +1,83 @@
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+{% include 'head.html' %}
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div data-loader="dual-ring"></div>
+</div>
+<!-- Preloader End -->
+
+<!-- Document Wrapper   
+============================================= -->
+<div id="main-wrapper">
+    <!-- Header
+    ============================================= -->
+    {% include 'user/header.html' %}
+    <!-- Header End -->
+
+    <!-- Secondary menu
+    ============================================= -->
+    <div class="bg-primary">
+        <div class="container d-flex justify-content-center">
+            <ul class="nav secondary-nav">
+                <li class="nav-item"> <a class="nav-link active" href="send-money.html">Send</a></li>
+                <li class="nav-item"> <a class="nav-link" href="request-money.html">Request</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Secondary menu end -->
+
+    <!-- Content
+    ============================================= -->
+    <div id="content" class="py-4">
+        <div class="container">
+            <h2 class="font-weight-400 text-center mt-3">Send Money</h2>
+            <p class="text-4 text-center mb-4">You are sending money to <span class="font-weight-500">{{ name.first_name }} {{ name.last_name }}</span></p>
+            <div class="row">
+                <div class="col-md-8 col-lg-6 col-xl-5 mx-auto">
+                    <div class="bg-light shadow-sm rounded p-3 p-sm-4 mb-4">
+
+                        <!-- Send Money Confirm
+                        ============================================= -->
+                        <form id="form-send-money" method="post" action="/user/send-money-confirm">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{ email }}" name="email">
+                            <input type="hidden" value="{{ amount }}" name="amount">
+                            <input type="hidden" value="{{ currency }}" name="currency">
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" name="desc" rows="4" id="description" required placeholder="Payment Description"></textarea>
+                            </div>
+                            <h3 class="text-5 font-weight-400 mb-3">Details</h3>
+                            <p class="mb-1">Send Amount <span class="text-3 float-right">{{ amount|intcomma }} {{ currency }}</span></p>
+                            <hr>
+                            <p class="font-weight-500">Total<span class="text-3 float-right">{{ amount|intcomma }} {{ currency }}</span></p>
+                            <button class="btn btn-primary btn-block">Send Money</button>
+                        </form>
+                        <!-- Send Money Confirm end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content end -->
+
+    <!-- Footer
+    ============================================= -->
+    {% include 'footer.html' %}
+    <!-- Footer end -->
+
+</div>
+<!-- Document Wrapper end -->
+
+<!-- Back to Top
+============================================= -->
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a>
+
+<!-- Script -->
+{% include 'foot.html' %}
+</body>
+</html>

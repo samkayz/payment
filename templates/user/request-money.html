@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'head.html' %}
+<body>
+<!-- Preloader -->
+<div id="preloader">
+    <div data-loader="dual-ring"></div>
+</div>
+<!-- Preloader End -->
+
+<!-- Document Wrapper   
+============================================= -->
+<div id="main-wrapper">
+    <!-- Header
+    ============================================= -->
+    {% include 'user/header.html' %}
+    <!-- Header End -->
+
+    <!-- Secondary menu
+    ============================================= -->
+    <div class="bg-primary">
+        <div class="container d-flex justify-content-center">
+            <ul class="nav secondary-nav">
+                <li class="nav-item"> <a class="nav-link" href="send-money.html">Send</a></li>
+                <li class="nav-item"> <a class="nav-link active" href="request-money.html">Request</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Secondary menu end -->
+
+    <!-- Content
+    ============================================= -->
+    <div id="content" class="py-4">
+        <div class="container">
+            <h2 class="font-weight-400 text-center mt-3">Request Money</h2>
+            <p class="text-4 text-center mb-4">Request your payment on anytime, anywhere in the world.</p>
+            <div class="row">
+                <div class="col-md-8 col-lg-6 col-xl-5 mx-auto">
+                    <div class="bg-light shadow-sm rounded p-3 p-sm-4 mb-4">
+                        <h3 class="text-5 font-weight-400 mb-3">Payer Details</h3>
+                        {% for message in messages %}
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <strong>Warning - </strong> {{ message }}
+                                </div>
+                            {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                                <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <strong>Success - </strong> {{ message }}
+                                </div>
+                            {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <strong>Error - </strong> {{ message }}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        <!-- Request Money Form
+                        ============================================= -->
+                        <form id="form-send-money" method="post" action="/user/request-money">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="payerName">Name</label>
+                                <input type="text" value="" class="form-control" name="name" data-bv-field="payerName" id="payerName" required placeholder="Enter Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="emailID">Email</label>
+                                <input type="text" value="" class="form-control" name="email" data-bv-field="emailid" id="emailID" required placeholder="Enter Email Address">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputCountry">Country</label>
+                                <select class="custom-select" id="inputCountry" name="country">
+                                    <option value="">Select Country</option>
+                                    {% for countries in country %}
+                                        <option value="{{ countries.country_code }}">{{ countries.country_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount">Amount</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"> <span class="input-group-text">$</span> </div>
+                                    <input type="text" class="form-control" data-bv-field="amount" name="amount" id="amount" placeholder="1,000.00">
+                                    <div class="input-group-append"> <span class="input-group-text p-0">
+                    <select id="youSendCurrency" data-style="custom-select bg-transparent border-0" name="currency" data-container="body" data-live-search="true" class="selectpicker form-control bg-transparent" required="">
+                      <optgroup label="Popular Currency">
+                      <option data-icon="currency-flag currency-flag-usd mr-1" data-subtext="United States dollar" selected="selected" value="USD">USD</option>
+                      <option value="" data-divider="true">divider</option>
+                      <optgroup label="Other Currency">
+                      <option data-icon="currency-flag currency-flag-ngn mr-1" data-subtext="Nigerian naira" value="NGN">NGN</option>
+                      <option data-icon="currency-flag currency-flag-zar mr-1" data-subtext="South African rand" value="NGN">ZAR</option>
+                      </optgroup>
+                          </optgroup>
+                    </select>
+                    </span> </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" rows="4" name="desc" id="description" required placeholder="Payment Description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="paymentDue">Payment due by</label>
+                                <div class="position-relative">
+                                    <input id="paymentDue" value="" name="due" type="text" class="form-control" required placeholder="Payment Due Date">
+                                    <span class="icon-inside"><i class="fas fa-calendar-alt"></i></span> </div>
+                            </div>
+                            <button class="btn btn-primary btn-block mt-4">Continue</button>
+                        </form>
+                        <!-- Request Money Form end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content end -->
+
+    <!-- Footer
+    ============================================= -->
+    {% include 'footer.html' %}
+    <!-- Footer end -->
+
+</div>
+<!-- Document Wrapper end -->
+
+<!-- Back to Top
+============================================= -->
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a>
+
+<!-- Script -->
+{% include 'foot.html' %}
+<script>
+    $(function() {
+        'use strict';
+        // Payment due by
+        $('#paymentDue').daterangepicker({
+            singleDatePicker: true,
+            minDate: moment(),
+            autoUpdateInput: false,
+        }, function(chosen_date) {
+            $('#paymentDue').val(chosen_date.format('MM-DD-YYYY'));
+        });
+    });
+</script>
+<script src="js/theme.js"></script>
+</body>
+</html>
