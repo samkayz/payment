@@ -319,4 +319,6 @@ def card_and_account(request):
             return redirect('cards-and-accounts')
 
     show = Card.objects.filter(owner_id=c_user)
-    return render(request, 'user/cards-and-accounts.html', {'show': show})
+    bal = Balance.objects.values('bal').get(user_id=c_user)['bal']
+    user = Balance.objects.filter(user_id=c_user).exists()
+    return render(request, 'user/cards-and-accounts.html', {'show': show, 'bal': bal, 'users': user})
