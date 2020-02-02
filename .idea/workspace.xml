@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="43525952-0d9f-451e-b437-9d335d8e2322" name="Default Changelist" comment="" />
+    <list default="true" id="43525952-0d9f-451e-b437-9d335d8e2322" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Pay/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pay/settings.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,18 +94,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="md" value="1" />
           <entry key="py" value="2" />
+          <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="Python" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="32" />
-          <entry key="py" value="27" />
+          <entry key="py" value="29" />
           <entry key="txt" value="7" />
         </counts>
       </usages-collector>
@@ -111,7 +117,7 @@
         <counts>
           <entry key="HTML" value="32" />
           <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="27" />
+          <entry key="Python" value="29" />
         </counts>
       </usages-collector>
     </session>
@@ -127,11 +133,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="324" lean-forward="true" selection-start-line="324" selection-end-line="324" />
+            <state relative-caret-position="262">
+              <caret line="324" selection-start-line="324" selection-end-line="324" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -142,24 +148,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Pay/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="84" column="24" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="24" />
+            <state relative-caret-position="2970">
+              <caret line="135" column="56" selection-start-line="135" selection-start-column="56" selection-end-line="135" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Pay/__init__.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Pay/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -179,7 +176,7 @@
         <entry file="file://$PROJECT_DIR$/templates/user/profile.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="164">
-              <caret line="61" column="26" lean-forward="true" selection-start-line="51" selection-start-column="20" selection-end-line="61" selection-end-column="26" />
+              <caret line="61" column="26" selection-start-line="51" selection-start-column="20" selection-end-line="61" selection-end-column="26" />
               <folding>
                 <element signature="n#div#0;n#aside#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
               </folding>
@@ -247,7 +244,6 @@
         <option value="$PROJECT_DIR$/templates/user/p_name.html" />
         <option value="$PROJECT_DIR$/templates/head.html" />
         <option value="$PROJECT_DIR$/templates/foot.html" />
-        <option value="$PROJECT_DIR$/Pay/settings.py" />
         <option value="$PROJECT_DIR$/templates/user/send-money-confirm.html" />
         <option value="$PROJECT_DIR$/templates/user/send-money-success.html" />
         <option value="$PROJECT_DIR$/templates/user/send-money.html" />
@@ -265,6 +261,7 @@
         <option value="$PROJECT_DIR$/templates/user/profile.html" />
         <option value="$PROJECT_DIR$/templates/user/cards-and-accounts.html" />
         <option value="$PROJECT_DIR$/user/views.py" />
+        <option value="$PROJECT_DIR$/Pay/settings.py" />
       </list>
     </option>
   </component>
@@ -307,27 +304,6 @@
             <path>
               <item name="Pay" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pay" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pay" type="462c0819:PsiDirectoryNode" />
-              <item name="Pay" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pay" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pay" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pay" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -404,7 +380,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20610687" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20610687" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -418,7 +394,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50076455" side_tool="true" weight="0.32874355" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49923548" visible="true" weight="0.62435675" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49923548" visible="true" weight="0.6174957" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -580,13 +556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Pay/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="84" column="24" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Pay/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -631,7 +600,7 @@
     <entry file="file://$PROJECT_DIR$/templates/user/profile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
-          <caret line="61" column="26" lean-forward="true" selection-start-line="51" selection-start-column="20" selection-end-line="61" selection-end-column="26" />
+          <caret line="61" column="26" selection-start-line="51" selection-start-column="20" selection-end-line="61" selection-end-column="26" />
           <folding>
             <element signature="n#div#0;n#aside#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
           </folding>
@@ -651,13 +620,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/user/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="324" lean-forward="true" selection-start-line="324" selection-end-line="324" />
+        <state relative-caret-position="262">
+          <caret line="324" selection-start-line="324" selection-end-line="324" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pay/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2970">
+          <caret line="135" column="56" selection-start-line="135" selection-start-column="56" selection-end-line="135" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/license.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
