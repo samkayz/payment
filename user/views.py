@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import auth, User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from . models import Country, Profile, Balance, Transactions, RequestMoney, Card
+from . models import Country, Profile, Balance, Transactions, RequestMoney, Card, Banks, BankAccount
 from django.db.models import Q
 from django.core.paginator import Paginator
 import random
@@ -251,6 +251,7 @@ def request_money(request):
     return render(request, 'user/request-money.html', {'country': country})
 
 
+@login_required(login_url='login')
 def request_money_confirm(request):
     c_user = request.user.id
     sender = request.user.first_name + ' ' + request.user.last_name
@@ -285,6 +286,7 @@ def request_money_confirm(request):
     return render(request, 'user/request-money-confirm.html')
 
 
+@login_required(login_url='login')
 def request_detail(request):
     c_user = request.user.id
     users = Balance.objects.filter(user_id=c_user).exists()
@@ -299,6 +301,49 @@ def request_detail(request):
         return render(request, 'user/request.html')
 
 
+@login_required(login_url='login')
+def p_req(request, id):
+    show = RequestMoney.objects.all().get(id=id)
+    return render(request, 'user/p_req.html', {'show': show})
+
+
+@login_required(login_url='login')
+def c_req(request):
+    ref_no = uuid.uuid4().hex[:10].lower()
+    base_date_time = datetime.now()
+    now = (datetime.strftime(base_date_time, "%Y-%m-%d %H:%M %p"))
+    if request.method == "POST":
+        r_id = request.POST['r_id']
+        s_id = request.POST['s_id']
+        r_amount = request.POST['r_amount']
+        currency = request.POST['currency']
+        req_id = request.POST['req_id']
+        s_name = User.objects.all().get(id=s_id)
+        r_name = User.objects.all().get(id=r_id)
+        r_bal = Balance.objects.values('bal').get(user_id=r_id)['bal']
+        s_bal = Balance.objects.values('bal').get(user_id=s_id)['bal']
+
+        am = (float(r_amount))
+        # Payer
+        r_new = r_bal - am
+        Balance.objects.filter(user_id=r_id).update(bal=r_new)
+
+        # Payee
+        s_new = s_bal + am
+        Balance.objects.filter(user_id=s_id).update(bal=s_new)
+
+        # Update Request Money Table
+        RequestMoney.objects.filter(id=req_id).update(status="Paid")
+
+        # Create Transaction Records
+        tran = Transactions(s_id=r_id, r_id=s_id, sender_name=r_name.first_name, desc="Money Request",
+                            txn_amt=r_amount, txn_id="tx"+ref_no, txn_date=now, currency=currency,
+                            receiver_name=s_name.first_name)
+        tran.save()
+        return render(request, 'user/c_req.html', {'am': r_amount, 'cur': currency, 's_name': s_name.first_name})
+
+
+@login_required(login_url='login')
 def card_and_account(request):
     c_user = request.user.id
     if request.method == 'POST':
@@ -321,4 +366,25 @@ def card_and_account(request):
     show = Card.objects.filter(owner_id=c_user)
     bal = Balance.objects.values('bal').get(user_id=c_user)['bal']
     user = Balance.objects.filter(user_id=c_user).exists()
-    return render(request, 'user/cards-and-accounts.html', {'show': show, 'bal': bal, 'users': user})
+    country = Country.objects.filter()
+    bank = Banks.objects.filter()
+    bank_acc = BankAccount.objects.all().get(user_id=c_user)
+    return render(request, 'user/cards-and-accounts.html', {'show': show, 'bal': bal, 'users': user,
+                                                            'cont': country, 'bank': bank, 'bnk': bank_acc})
+
+
+@login_required(login_url='login')
+def add_account(request):
+    c_user_id = request.user.id
+    if request.method == "POST":
+        bankAccountType = request.POST['bankAccountType']
+        country_id = request.POST['country_id']
+        bankName = request.POST['bankName']
+        accountName = request.POST['accountName']
+        accountNumber = request.POST['accountNumber']
+        swiftCode = request.POST['swiftCode']
+
+        bank_acct = BankAccount(user_id=c_user_id, acct_type=bankAccountType, bank_country=country_id,
+                                bank_name=bankName, acct_name=accountName, acct_no=accountNumber, swift_code=swiftCode)
+        bank_acct.save()
+        return redirect('cards-and-accounts')

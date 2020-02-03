@@ -13,6 +13,9 @@ urlpatterns = [
     path('request-money', views.request_money, name='request-money'),
     path('request-money-confirm', views.request_money_confirm, name='request-money-confirm'),
     path('request-detail', views.request_detail, name='request-detail'),
+    path('p_req/<id>', views.p_req),
+    path('confirm-payment-request', views.c_req, name='confirm-payment-request'),
     path('cards-and-accounts', views.card_and_account, name='cards-and-accounts'),
+    path('add_account', views.add_account),
 
 ]

@@ -24,7 +24,7 @@ SECRET_KEY = '$g$ty0)b%mbowzc054f^$4t41m+24@c*0u+!--!q20)s&p@f9z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 ALLOWED_HOSTS = []
 
 
@@ -133,4 +133,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
-SESSION_EXPIRE_SECONDS = 1200  # 300 seconds = 5 minutes
+SESSION_COOKIE_AGE = 300

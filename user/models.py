@@ -78,3 +78,26 @@ class Card(models.Model):
         db_table = 'card'
 
 
+class Banks(models.Model):
+    name = models.CharField(max_length=100)
+    code = models.CharField(max_length=10)
+
+    class Meta:
+        db_table = "banks"
+
+
+class BankAccount(models.Model):
+    user_id = models.IntegerField()
+    acct_type = models.CharField(max_length=100)
+    bank_country = models.CharField(max_length=100)
+    bank_name = models.CharField(max_length=100)
+    acct_name = models.CharField(max_length=1000)
+    acct_no = models.CharField(max_length=100)
+    swift_code = models.CharField(max_length=100)
+
+    class Meta:
+        db_table = "bank_account"
+
+
+
+

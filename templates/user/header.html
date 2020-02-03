@@ -6,7 +6,7 @@
                 <!-- Logo
                 ============================= -->
                 <div class="logo">
-                    <a class="d-flex" href="/" title="Payyed - HTML Template">
+                    <a class="d-flex" href="/" title="Payyed">
                         <img src="{% static 'images/logo.png'%}" alt="Payyed" />
                     </a>
                 </div>
@@ -22,7 +22,7 @@
                         <ul class="navbar-nav mr-auto">
                             <li><a href="/user/home">Dashboard</a></li>
                             <li><a href="/user/send-money">Send</a></li>
-                            <li><a href="/user/request-money">Receive</a></li>
+                            <li><a href="/user/request-money">Request</a></li>
                             <li><a href="about-us.html">About Us</a></li>
                             <li><a href="fees.html">Fees</a></li>
                             <li><a href="help.html">Help</a></li>
@@ -85,7 +85,9 @@
                 {% if user.is_authenticated %}
                     <nav class="login-signup navbar navbar-expand">
                         <ul class="navbar-nav">
-                            <li class="align-items-center h-auto ml-sm-3"><a class="btn btn-primary d-none d-sm-block" href="/user/logout">Logout</a></li>
+                            <li class="align-items-center h-auto ml-sm-3">
+                                <a class="btn btn-primary d-none d-sm-block" href="/user/logout">Logout</a>
+                            </li>
                         </ul>
                     </nav>
                 {% endif %}

@@ -88,7 +88,7 @@
                             </div>
                             <div class="col-sm-6 col-md-3">
                                 <div class="border rounded p-3 text-center"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-university"></i></span> <span class="text-5 d-block text-light mt-4 mb-3"><i class="far fa-circle "></i></span>
-                                    <p class="mb-0"><a class="btn-link stretched-link" href="#">Add Bank Account</a></p>
+                                    <p class="mb-0"><a class="btn-link stretched-link" href="/user/cards-and-accounts">Add Bank Account</a></p>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +135,7 @@
                                             </div>
                                         {% endif %}
                                         <div class="col-3 col-sm-2 text-right text-4">
-                                            <span class="text-nowrap">{{ data.txn_amt }}</span>
+                                            <span class="text-nowrap">{{ data.txn_amt|intcomma }}</span>
                                             <span class="text-2 text-uppercase">({{ data.currency }})</span>
                                         </div>
                                     </div>
@@ -149,7 +149,7 @@
                                                         <div class="my-auto text-center">
                                                             <div class="text-17 text-white my-3"><i class="fas fa-building"></i></div>
                                                             <h3 class="text-4 text-white font-weight-400 my-3">{{ data.txn_id|upper }}</h3>
-                                                            <div class="text-8 font-weight-500 text-white my-4">{{ data.txn_amt }}</div>
+                                                            <div class="text-8 font-weight-500 text-white my-4">{{ data.txn_amt|intcomma }}</div>
                                                             <p class="text-white">{{ data.txn_date }}</p>
                                                         </div>
                                                     </div>
@@ -160,11 +160,11 @@
                                                         <hr>
                                                         <div class="px-3">
                                                             <ul class="list-unstyled">
-                                                                <li class="mb-2">Payment Amount <span class="float-right text-3">${{ data.txn_amt }}</span></li>
+                                                                <li class="mb-2">Payment Amount <span class="float-right text-3">${{ data.txn_amt|intcomma }}</span></li>
                                                                 <li class="mb-2">Fee <span class="float-right text-3">$0.00</span></li>
                                                             </ul>
                                                             <hr class="mb-2">
-                                                            <p class="d-flex align-items-center font-weight-500 mb-4">Total Amount <span class="text-3 ml-auto">${{ data.txn_amt }}</span></p>
+                                                            <p class="d-flex align-items-center font-weight-500 mb-4">Total Amount <span class="text-3 ml-auto">${{ data.txn_amt|intcomma }}</span></p>
                                                             {% if data.s_id == user.id %}
                                                                 <ul class="list-unstyled">
                                                                     <li class="font-weight-500">Receiver:</li>
